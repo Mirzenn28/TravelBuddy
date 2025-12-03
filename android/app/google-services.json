@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "194531693001",
+    "project_id": "travelbuddyflutter-7061f",
+    "storage_bucket": "travelbuddyflutter-7061f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194531693001:android:eb3077d81b591c79c55818",
+        "android_client_info": {
+          "package_name": "com.example.flutter_projects_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmiq5-4tJMtl1cIQZqiCWIlr9Ukeyw24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194531693001:android:63a846bf2dc54b75c55818",
+        "android_client_info": {
+          "package_name": "com.example.travelbuddy_admin_panel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmiq5-4tJMtl1cIQZqiCWIlr9Ukeyw24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194531693001:android:668c2b2c1b1b2286c55818",
+        "android_client_info": {
+          "package_name": "com.group1.travel_buddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmiq5-4tJMtl1cIQZqiCWIlr9Ukeyw24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
