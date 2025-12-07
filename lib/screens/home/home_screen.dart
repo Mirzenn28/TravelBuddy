@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA), // Slightly cleaner white-grey
+      backgroundColor: const Color(0xFFF8F9FA),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // --- BODY CONTENT  ---
             Transform.translate(
-              offset: const Offset(0, -40), // Pulls content up to overlap header
+              offset: const Offset(0, -40),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -151,7 +151,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     const SizedBox(height: 24),
 
-                    // 2. ACTION GRID
+                    // 2. INFORMATION BOX 1 - About TravelBuddy
+                    _buildInfoCard(
+                      icon: Icons.info_outline,
+                      title: 'About TravelBuddy',
+                      content: 'TravelBuddy is an innovative mobile application designed to simplify public transportation navigation across Batangas City. The app serves as a comprehensive travel companion that integrates real-time route information, fare estimates, weather updates, and traffic conditions into a single user-friendly platform. The proposed transportation route system integrates essential features designed to enhance user experience, security, and reliability. The system begins with a secure Author Authentication process, ensuring that only authorized users can access sensitive information and maintain the safety of their data. It also incorporates a dynamic Route Display and Tracking module, offering an interactive map that allows users to explore all available transportation routes with ease.',
+                      color: const Color(0xFF1976D2),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    // 3. INFORMATION BOX 2 - SDG Alignment
+                    _buildInfoCard(
+                      icon: Icons.eco_outlined,
+                      title: 'Our Commitment to Climate Action',
+                      content: 'This project aligns with SDG Goal No. 13: Climate Action, which focuses on reducing global greenhouse gas emissions and strengthening resilience against climate-related impacts. One major factor in rising emissions is the heavy dependence on private vehicles, which contribute significantly to air pollution, fuel consumption, and traffic congestion. By promoting the use of public transportation, the project supports a shift toward more sustainable mobility. Public transport systems can move large numbers of people using far less energy per passenger compared to individual cars, which helps lower carbon output. Encouraging commuters to choose buses, trains, and other shared transport options contributes to cleaner air, reduced traffic, and a more environmentally responsible community.',
+                      color: const Color(0xFF388E3C),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // 4. ACTION GRID
                     const Padding(
                       padding: EdgeInsets.only(left: 8.0, bottom: 12.0),
                       child: Text("Quick Actions", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
@@ -185,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     const SizedBox(height: 24),
 
-                    // 3. TRAFFIC WIDGET
+                    // 5. TRAFFIC WIDGET
                     const Padding(
                       padding: EdgeInsets.only(left: 8.0, bottom: 12.0),
                       child: Text("Live Updates", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
@@ -194,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     const SizedBox(height: 24),
 
-                    // 4. TIPS
+                    // 6. TIPS
                     _buildModernTipsCard(),
 
                     const SizedBox(height: 40),
@@ -208,7 +228,69 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // New Square Grid Card Design
+  // New Info Card Widget
+  Widget _buildInfoCard({
+    required IconData icon,
+    required String title,
+    required String content,
+    required Color color,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: color.withOpacity(0.2), width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: color.withOpacity(0.1),
+            blurRadius: 15,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, color: color, size: 24),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: color,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            content,
+            style: const TextStyle(
+              fontSize: 13,
+              color: Colors.black87,
+              height: 1.5,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Grid Action Card
   Widget _buildGridActionCard(
       BuildContext context, {
         required IconData icon,
